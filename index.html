@@ -3308,6 +3308,381 @@
       display: none !important;
     }
 
+
+/* Case gallery slider + fullscreen */
+.real-case-image.case-slider {
+  position: relative;
+  cursor: zoom-in;
+  background: #D9D9D9;
+}
+
+.real-case-image.case-slider .case-slide {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  opacity: 0;
+  transform: scale(1.02);
+  transition: opacity .55s ease, transform 2.8s ease;
+}
+
+.real-case-image.case-slider .case-slide.active {
+  opacity: 1;
+  transform: scale(1);
+}
+
+.real-case-image.case-slider::after {
+  z-index: 2;
+  pointer-events: none;
+  background: linear-gradient(180deg, rgba(34, 34, 34, 0) 42%, rgba(34, 34, 34, .38) 100%);
+}
+
+.case-fullscreen-btn {
+  position: absolute;
+  right: 14px;
+  bottom: 14px;
+  z-index: 4;
+  border: 0;
+  border-radius: 999px;
+  padding: 9px 13px;
+  background: rgba(255, 255, 255, .88);
+  color: #2B2B2B;
+  font-size: 13px;
+  line-height: 1;
+  font-weight: 600;
+  cursor: pointer;
+  backdrop-filter: blur(12px);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, .16);
+  transition: transform .2s ease, background .2s ease;
+}
+
+.case-fullscreen-btn:hover {
+  transform: translateY(-2px);
+  background: #fff;
+}
+
+.case-slider-dots {
+  position: absolute;
+  left: 14px;
+  bottom: 16px;
+  z-index: 4;
+  display: flex;
+  gap: 6px;
+  align-items: center;
+}
+
+.case-slider-dots span {
+  width: 6px;
+  height: 6px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, .52);
+  transition: width .25s ease, background .25s ease;
+}
+
+.case-slider-dots span.active {
+  width: 18px;
+  background: #FA7814;
+}
+
+.case-lightbox {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  padding: 28px;
+  background: rgba(18, 18, 18, .92);
+}
+
+.case-lightbox.open {
+  display: flex;
+}
+
+.case-lightbox__frame {
+  position: relative;
+  width: min(100%, 1180px);
+  height: min(100%, 760px);
+  display: grid;
+  grid-template-rows: 1fr auto;
+  gap: 16px;
+}
+
+.case-lightbox__image-wrap {
+  position: relative;
+  min-height: 0;
+  border-radius: 24px;
+  overflow: hidden;
+  background: #D9D9D9;
+  box-shadow: 0 28px 80px rgba(0, 0, 0, .36);
+}
+
+.case-lightbox__image {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  display: block;
+  background: #111;
+}
+
+.case-lightbox__title {
+  color: rgba(255, 255, 255, .86);
+  font-family: 'Montserrat', Arial, sans-serif;
+  font-size: 16px;
+  font-weight: 600;
+  text-align: center;
+}
+
+.case-lightbox__close,
+.case-lightbox__arrow {
+  position: absolute;
+  z-index: 2;
+  border: 0;
+  color: #fff;
+  cursor: pointer;
+  background: rgba(255, 255, 255, .12);
+  backdrop-filter: blur(14px);
+  transition: background .2s ease, transform .2s ease;
+}
+
+.case-lightbox__close {
+  top: 18px;
+  right: 18px;
+  width: 44px;
+  height: 44px;
+  border-radius: 999px;
+  font-size: 28px;
+  line-height: 1;
+}
+
+.case-lightbox__arrow {
+  top: 50%;
+  width: 48px;
+  height: 64px;
+  border-radius: 999px;
+  transform: translateY(-50%);
+  font-size: 34px;
+  line-height: 1;
+}
+
+.case-lightbox__arrow--prev { left: 18px; }
+.case-lightbox__arrow--next { right: 18px; }
+
+.case-lightbox__close:hover,
+.case-lightbox__arrow:hover {
+  background: rgba(250, 120, 20, .92);
+}
+
+@media (max-width: 760px) {
+  .case-lightbox {
+    padding: 14px;
+  }
+
+  .case-lightbox__frame {
+    height: min(100%, 680px);
+  }
+
+  .case-lightbox__image-wrap {
+    border-radius: 18px;
+  }
+
+  .case-lightbox__arrow {
+    width: 42px;
+    height: 56px;
+    font-size: 28px;
+  }
+
+  .case-fullscreen-btn {
+    font-size: 12px;
+    padding: 8px 11px;
+  }
+}
+
+
+/* FIX: reliable case slider visibility + cleaner fullscreen controls */
+.real-case-image.case-slider > img.case-slide {
+  position: absolute !important;
+  inset: 0 !important;
+  width: 100% !important;
+  height: 100% !important;
+  object-fit: cover !important;
+  display: block !important;
+  opacity: 0 !important;
+  z-index: 1 !important;
+  pointer-events: none !important;
+}
+
+.real-case-image.case-slider > img.case-slide.active {
+  opacity: 1 !important;
+  z-index: 2 !important;
+  pointer-events: auto !important;
+}
+
+.real-case-card:hover .real-case-image.case-slider > img.case-slide:not(.active) {
+  opacity: 0 !important;
+  transform: scale(1.02) !important;
+}
+
+.real-case-card:hover .real-case-image.case-slider > img.case-slide.active {
+  opacity: 1 !important;
+  transform: scale(1.035) !important;
+}
+
+.case-lightbox {
+  padding: 32px 54px 30px !important;
+}
+
+.case-lightbox__frame {
+  width: min(100%, 1180px) !important;
+  height: min(100%, 760px) !important;
+}
+
+.case-lightbox__image-wrap {
+  border-radius: 22px !important;
+  overflow: hidden !important;
+}
+
+.case-lightbox__close,
+.case-lightbox__arrow {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  box-sizing: border-box !important;
+  padding: 0 !important;
+}
+
+.case-lightbox__close {
+  position: fixed !important;
+  top: 24px !important;
+  right: 24px !important;
+  width: 46px !important;
+  height: 46px !important;
+  font-size: 30px !important;
+  background: rgba(255, 255, 255, .16) !important;
+}
+
+.case-lightbox__arrow {
+  width: 56px !important;
+  height: 56px !important;
+  border-radius: 999px !important;
+  font-size: 36px !important;
+  line-height: 1 !important;
+  background: rgba(255, 255, 255, .16) !important;
+}
+
+.case-lightbox__arrow--prev {
+  left: 18px !important;
+}
+
+.case-lightbox__arrow--next {
+  right: 18px !important;
+}
+
+.case-lightbox__close:hover,
+.case-lightbox__arrow:hover {
+  background: #FA7814 !important;
+}
+
+@media (max-width: 760px) {
+  .case-lightbox {
+    padding: 16px !important;
+  }
+
+  .case-lightbox__close {
+    top: 14px !important;
+    right: 14px !important;
+    width: 42px !important;
+    height: 42px !important;
+  }
+
+  .case-lightbox__arrow {
+    width: 44px !important;
+    height: 44px !important;
+    font-size: 30px !important;
+  }
+
+  .case-lightbox__arrow--prev {
+    left: 10px !important;
+  }
+
+  .case-lightbox__arrow--next {
+    right: 10px !important;
+  }
+}
+
+
+/* FIX 2: hover-only case slider + real SVG fullscreen icons */
+.case-lightbox__close,
+.case-lightbox__arrow {
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  text-align: center !important;
+  font-size: 0 !important;
+  line-height: 0 !important;
+}
+
+.case-lightbox__close svg,
+.case-lightbox__arrow svg {
+  display: block !important;
+  width: 22px !important;
+  height: 22px !important;
+  flex: 0 0 auto !important;
+  stroke: currentColor !important;
+  stroke-width: 2.4 !important;
+  stroke-linecap: round !important;
+  stroke-linejoin: round !important;
+  fill: none !important;
+}
+
+.case-lightbox__arrow svg {
+  width: 26px !important;
+  height: 26px !important;
+}
+
+.case-lightbox__close {
+  color: #fff !important;
+}
+
+.case-lightbox__arrow {
+  color: #fff !important;
+}
+
+.case-lightbox__close:hover,
+.case-lightbox__arrow:hover {
+  color: #fff !important;
+}
+
+
+/* FIX 3: remove green glare from hero slider transitions */
+.visual-card.main,
+.slider-card {
+  background: #202020 !important;
+  box-shadow: 0 28px 80px rgba(34, 34, 34, .16) !important;
+}
+
+.visual-card.main::before {
+  display: none !important;
+}
+
+.hero-slider {
+  background: #202020 !important;
+}
+
+.hero-slide {
+  background: #202020 !important;
+}
+
+.slider-overlay {
+  background: linear-gradient(
+    180deg,
+    rgba(34, 34, 34, .02) 0%,
+    rgba(34, 34, 34, .10) 100%
+  ) !important;
+}
+
 </style>
 </head>
 <body>
@@ -3316,7 +3691,7 @@
 <div class="hero-grid">
 <div class="hero-copy reveal">
 <div class="kicker"><span class="dot"></span> Медицинские объекты · мебельное оснащение</div>
-<h1>Комплексное мебельное оснащение <span class="soft">медицинских объектов</span></h1>
+<h1>Комплексное мебельное оснащение&nbsp;<span class="soft">медицинских объектов</span></h1>
 <p class="lead">Подбираем, проектируем, поставляем и монтируем мебельные решения для медицинских кабинетов, социальных учреждений, санаториев, реабилитационных центров и объектов после капитального ремонта.</p>
 <div class="hero-actions">
 <a class="btn" href="#request">Рассчитать оснащение объекта</a>
@@ -3484,7 +3859,7 @@
 </article>
 
 <div class="zones-callout-v2">
-<strong>Типовое не подходит? Проектируем под помещение.</strong>
+<strong>Типовое не подходит?<br/>Проектируем под помещение.</strong>
 <p>Учитываем ниши, нестандартные размеры, особенности планировки и задачи эксплуатации.</p>
 <a class="btn secondary" href="#request">Отправить планировку</a>
 </div>
@@ -3594,24 +3969,34 @@
 </div>
 <div class="real-cases-grid real-cases-grid--four">
 <article class="real-case-card">
-<div class="real-case-image">
-<img alt="Академия танца — мебель, зоны хранения и подсветка" src="PB700108_HDR 2.jpg"/>
+<div class="real-case-image case-slider" data-case-title="Академия танца">
+<img class="case-slide active" alt="Академия танца — мебель, зоны хранения и подсветка" src="PB700108_HDR 2.jpg"/>
+<img class="case-slide" alt="Академия танца — зона хранения" src="PB700143_HDR.jpg"/>
+<img class="case-slide" alt="Академия танца — шкафчики и зона хранения" src="PB700068 2.jpg"/>
+<img class="case-slide" alt="Академия танца — зал с зеркалами" src="PB700023 2.jpg"/>
+<img class="case-slide" alt="Академия танца — танцевальный зал" src="PB700041 2.jpg"/>
+<button class="case-fullscreen-btn" type="button">Смотреть фото</button>
+<div class="case-slider-dots" aria-hidden="true"></div>
 </div>
 <div class="real-case-body">
 <small>кейс 01 · нестандартное пространство</small>
 <h3>Академия танца</h3>
-<p>Проект с нестандартными интерьерными решениями: мебель, зоны хранения, подсветка и оформление пространства. Кейс показывает, что компания работает не только с типовой комплектацией, но и с визуально сложными объектами.</p>
+<p>Проект с интерьерными решениями, зонами хранения, подсветкой и визуальными элементами. Показывает, что компания работает не только с типовой комплектацией, но и с объектами, где важен внешний эффект.</p>
 <a class="real-case-link" href="#request">Обсудить похожий проект</a>
 </div>
 </article>
 <article class="real-case-card">
-<div class="real-case-image">
-<img alt="Гостиница Сакура — оснащение номера мебелью" src="image(123).png"/>
+<div class="real-case-image case-slider" data-case-title="Гостиница «Сакура»">
+<img class="case-slide active" alt="Гостиница Сакура — оснащение номера мебелью" src="image(123).png"/>
+<img class="case-slide" alt="Гостиница Сакура — зона номера" src="image(124).png"/>
+<img class="case-slide" alt="Гостиница Сакура — мебель и хранение" src="image(125).png"/>
+<button class="case-fullscreen-btn" type="button">Смотреть фото</button>
+<div class="case-slider-dots" aria-hidden="true"></div>
 </div>
 <div class="real-case-body">
 <small>кейс 02 · гостиничный объект</small>
 <h3>Гостиница «Сакура»</h3>
-<p>Проект с разными сценариями использования: проживание, хранение, отдых и административные зоны. Такой опыт важен для санаториев, реабилитационных центров и объектов оздоровительной инфраструктуры.</p>
+<p>Комплектация объекта с разными сценариями использования: проживание, хранение, рабочая зона, мини-кухня и мебель для ежедневной эксплуатации.</p>
 <a class="real-case-link" href="https://pro-sp.ru/directions/gostinicza-sakura/" rel="noopener" target="_blank">Смотреть проект</a>
 </div>
 </article>
@@ -3622,7 +4007,7 @@
 <div class="real-case-body">
 <small>кейс 03 · индивидуальные решения</small>
 <h3>Голос «Рекреация»</h3>
-<p>Проект со сложными индивидуальными решениями: декоративные элементы, нестандартные конструкции, фрески, фигурная резка и работа под конкретную архитектуру пространства. Кейс показывает, что компания может брать на себя не только стандартную мебель, но и сложные интерьерные задачи.</p>
+<p>Кейс планируется использовать для демонстрации сложных индивидуальных решений: фресок, фигурных элементов, нестандартного производства и монтажа.</p>
 <a class="real-case-link" href="#request">Фото в работе</a>
 </div>
 </article>
@@ -3633,7 +4018,7 @@
 <div class="real-case-body">
 <small>кейс 04 · общественные зоны</small>
 <h3>Голос «ЧТЗ»</h3>
-<p>Оснащение общественных пространств в жилых объектах комфорт-класса: зоны ожидания, отдыха, игровые и рекреационные помещения. Такой кейс показывает опыт работы с пространствами, где важны сценарии использования, износостойкость и комфорт для ежедневной эксплуатации.</p>
+<p>Кейс для зон ожидания, отдыха и игровых пространств в жилых объектах комфорт-класса. Нужны финальные фото от команды.</p>
 <a class="real-case-link" href="#request">Фото в работе</a>
 </div>
 </article>
@@ -3807,6 +4192,160 @@
   width: 100% !important;
 }
 </style>
+
+<div class="case-lightbox" id="caseLightbox" aria-hidden="true">
+  <div class="case-lightbox__frame">
+    <div class="case-lightbox__image-wrap">
+      <button class="case-lightbox__close" type="button" aria-label="Закрыть">
+        <svg aria-hidden="true" viewBox="0 0 24 24">
+          <path d="M6 6l12 12M18 6L6 18"></path>
+        </svg>
+      </button>
+      <button class="case-lightbox__arrow case-lightbox__arrow--prev" type="button" aria-label="Предыдущее фото">
+        <svg aria-hidden="true" viewBox="0 0 24 24">
+          <path d="M15 5l-7 7 7 7"></path>
+        </svg>
+      </button>
+      <img class="case-lightbox__image" src="" alt="">
+      <button class="case-lightbox__arrow case-lightbox__arrow--next" type="button" aria-label="Следующее фото">
+        <svg aria-hidden="true" viewBox="0 0 24 24">
+          <path d="M9 5l7 7-7 7"></path>
+        </svg>
+      </button>
+    </div>
+    <div class="case-lightbox__title"></div>
+  </div>
+</div>
+
+<script>
+(function () {
+  const sliders = Array.from(document.querySelectorAll('.case-slider'));
+  const lightbox = document.getElementById('caseLightbox');
+  if (!sliders.length || !lightbox) return;
+
+  const lightboxImg = lightbox.querySelector('.case-lightbox__image');
+  const lightboxTitle = lightbox.querySelector('.case-lightbox__title');
+  const closeBtn = lightbox.querySelector('.case-lightbox__close');
+  const prevBtn = lightbox.querySelector('.case-lightbox__arrow--prev');
+  const nextBtn = lightbox.querySelector('.case-lightbox__arrow--next');
+
+  let activeGallery = [];
+  let activeTitle = '';
+  let activeIndex = 0;
+
+  function setSlide(slider, index) {
+    const slides = Array.from(slider.querySelectorAll('.case-slide'));
+    const dots = Array.from(slider.querySelectorAll('.case-slider-dots span'));
+
+    slides.forEach((slide, i) => {
+      const isActive = i === index;
+      slide.classList.toggle('active', isActive);
+      slide.style.opacity = isActive ? '1' : '0';
+      slide.style.zIndex = isActive ? '2' : '1';
+      slide.style.pointerEvents = isActive ? 'auto' : 'none';
+    });
+
+    dots.forEach((dot, i) => dot.classList.toggle('active', i === index));
+    slider.dataset.index = String(index);
+  }
+
+  function openLightbox(gallery, title, index) {
+    activeGallery = gallery;
+    activeTitle = title || '';
+    activeIndex = index || 0;
+    updateLightbox();
+    lightbox.classList.add('open');
+    lightbox.setAttribute('aria-hidden', 'false');
+    document.body.style.overflow = 'hidden';
+  }
+
+  function closeLightbox() {
+    lightbox.classList.remove('open');
+    lightbox.setAttribute('aria-hidden', 'true');
+    document.body.style.overflow = '';
+  }
+
+  function updateLightbox() {
+    const current = activeGallery[activeIndex];
+    if (!current) return;
+    lightboxImg.src = current.src;
+    lightboxImg.alt = current.alt || activeTitle || 'Фото проекта';
+    lightboxTitle.textContent = activeTitle + ' · ' + (activeIndex + 1) + ' / ' + activeGallery.length;
+  }
+
+  function moveLightbox(direction) {
+    if (!activeGallery.length) return;
+    activeIndex = (activeIndex + direction + activeGallery.length) % activeGallery.length;
+    updateLightbox();
+  }
+
+  sliders.forEach((slider) => {
+    const slides = Array.from(slider.querySelectorAll('.case-slide'));
+    const dotsWrap = slider.querySelector('.case-slider-dots');
+    if (!slides.length) return;
+
+    slider.dataset.index = '0';
+
+    if (dotsWrap) {
+      dotsWrap.innerHTML = '';
+      slides.forEach((_, i) => {
+        const dot = document.createElement('span');
+        dot.className = i === 0 ? 'active' : '';
+        dotsWrap.appendChild(dot);
+      });
+    }
+
+    setSlide(slider, 0);
+
+    let hoverTimer = null;
+    const card = slider.closest('.real-case-card') || slider;
+
+    function startHoverSlider() {
+      if (slides.length <= 1 || hoverTimer) return;
+      hoverTimer = setInterval(() => {
+        const current = Number(slider.dataset.index || 0);
+        const next = (current + 1) % slides.length;
+        setSlide(slider, next);
+      }, 2400);
+    }
+
+    function stopHoverSlider() {
+      if (!hoverTimer) return;
+      clearInterval(hoverTimer);
+      hoverTimer = null;
+    }
+
+    card.addEventListener('mouseenter', startHoverSlider);
+    card.addEventListener('mouseleave', stopHoverSlider);
+    card.addEventListener('focusin', startHoverSlider);
+    card.addEventListener('focusout', stopHoverSlider);
+
+    slider.addEventListener('click', (event) => {
+      if (event.target.closest('.case-fullscreen-btn') || event.target.classList.contains('case-slide')) {
+        const current = Number(slider.dataset.index || 0);
+        const gallery = slides.map((slide) => ({ src: slide.getAttribute('src'), alt: slide.getAttribute('alt') }));
+        openLightbox(gallery, slider.dataset.caseTitle || '', current);
+      }
+    });
+  });
+
+  closeBtn.addEventListener('click', closeLightbox);
+  prevBtn.addEventListener('click', () => moveLightbox(-1));
+  nextBtn.addEventListener('click', () => moveLightbox(1));
+
+  lightbox.addEventListener('click', (event) => {
+    if (event.target === lightbox) closeLightbox();
+  });
+
+  document.addEventListener('keydown', (event) => {
+    if (!lightbox.classList.contains('open')) return;
+    if (event.key === 'Escape') closeLightbox();
+    if (event.key === 'ArrowLeft') moveLightbox(-1);
+    if (event.key === 'ArrowRight') moveLightbox(1);
+  });
+})();
+</script>
+
 </body>
 </html>
 <style>
