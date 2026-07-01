@@ -3683,6 +3683,30 @@
   ) !important;
 }
 
+
+/* Final cases image height + presentation download button */
+.real-case-card {
+  grid-template-rows: 320px 1fr !important;
+}
+.real-case-image {
+  min-height: 320px !important;
+}
+.hero-actions .btn.secondary[href$=".pdf"] {
+  background: #fff !important;
+  color: #2B2B2B !important;
+  border: 1px solid rgba(0,0,0,.18) !important;
+  box-shadow: none !important;
+}
+.hero-actions .btn.secondary[href$=".pdf"]:hover {
+  background: #FA7814 !important;
+  color: #fff !important;
+  border-color: #FA7814 !important;
+}
+@media (max-width: 760px) {
+  .real-case-card { grid-template-rows: 280px auto !important; }
+  .real-case-image { min-height: 280px !important; }
+}
+
 </style>
 </head>
 <body>
@@ -3695,7 +3719,7 @@
 <p class="lead">Подбираем, проектируем, поставляем и монтируем мебельные решения для медицинских кабинетов, социальных учреждений, санаториев, реабилитационных центров и объектов после капитального ремонта.</p>
 <div class="hero-actions">
 <a class="btn" href="#request">Рассчитать оснащение объекта</a>
-<a class="btn secondary" href="#process">Посмотреть этапы</a>
+<a class="btn secondary" href="soyuzpostavka_presentation.pdf" download>Скачать презентацию</a>
 </div>
 <p class="helper">Пришлите проект, ведомость или описание объекта — подготовим предварительную комплектацию и расчёт.</p>
 </div>
@@ -3891,7 +3915,7 @@
 </div>
 </article>
 <article class="process-card">
-<img alt="Подготовка коммерческого предложения по позициям" src="12.png"/>
+<img alt="Коммерческое предложение, расчёт и документы по позициям" src="process-step-03-kp.png"/>
 <div class="process-card-top"><span>03</span></div>
 <div class="process-card-body">
 <h3>Этап 3. Подготовка коммерческого предложения</h3>
@@ -3899,7 +3923,7 @@
 </div>
 </article>
 <article class="process-card">
-<img alt="Согласование условий и заключение договора" src="13.png"/>
+<img alt="Согласование условий проекта и заключение договора" src="process-step-04-contract.png"/>
 <div class="process-card-top"><span>04</span></div>
 <div class="process-card-body">
 <h3>Этап 4. Согласование и заключение договора</h3>
