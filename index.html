@@ -3707,6 +3707,864 @@
   .real-case-image { min-height: 280px !important; }
 }
 
+
+
+/* Requested final edits: tighter spacing, trust image, rounded media */
+.section {
+  padding-top: 82px !important;
+  padding-bottom: 82px !important;
+}
+
+.section.compact {
+  padding-top: 56px !important;
+  padding-bottom: 56px !important;
+}
+
+.hero {
+  padding-top: 56px !important;
+  padding-bottom: 62px !important;
+}
+
+.section-head {
+  margin-bottom: 28px !important;
+}
+
+.stats-inline-photo {
+  width: 100%;
+  height: 210px;
+  border-radius: 24px;
+  overflow: hidden;
+  background: #D9D9D9;
+  border: 1px solid rgba(0, 0, 0, .08);
+}
+
+.stats-inline-photo img {
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: cover;
+}
+
+.zone-media,
+.real-case-image,
+.expert-photo,
+.process-card,
+.visual-card.main,
+.slider-card,
+.hero-slider {
+  border-radius: 24px;
+}
+
+.zone-media-card,
+.real-case-card,
+.why-card,
+.stats,
+.audience-panel,
+.process-sticky,
+.faq-section,
+.expert-section {
+  border-radius: 28px;
+}
+
+@media (max-width: 760px) {
+  .section {
+    padding-top: 58px !important;
+    padding-bottom: 58px !important;
+  }
+
+  .section.compact {
+    padding-top: 42px !important;
+    padding-bottom: 42px !important;
+  }
+
+  .stats-inline-photo {
+    height: 180px;
+  }
+}
+
+
+/* Hero cleanup + separated key points */
+.hero-visual .orb,
+.hero-visual .mini-card {
+  display: none !important;
+}
+
+.hero-visual {
+  min-height: 660px !important;
+}
+
+.visual-card.main,
+.slider-card {
+  inset: 18px 0 auto 0 !important;
+  width: 100% !important;
+  min-height: 620px !important;
+  border-radius: 28px !important;
+}
+
+.hero-slider {
+  border-radius: 28px !important;
+}
+
+.hero-points {
+  padding: 36px;
+  border-radius: 28px;
+  background: #ffffff;
+  box-shadow: 0 18px 42px rgba(0, 0, 0, .06);
+}
+
+.hero-points .section-head {
+  margin-bottom: 26px;
+}
+
+.hero-points-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 16px;
+}
+
+.hero-point-card {
+  min-height: 250px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  padding: 24px;
+  border-radius: 24px;
+  background: #F9F9F9;
+  border: 1px solid rgba(0, 0, 0, .08);
+}
+
+.hero-point-card span {
+  width: 44px;
+  height: 44px;
+  display: grid;
+  place-items: center;
+  border-radius: 14px;
+  background: rgba(250, 120, 20, .12);
+  color: var(--primary);
+  font-weight: 800;
+  font-size: 14px;
+}
+
+.hero-point-card h3 {
+  max-width: 420px;
+  color: var(--ink);
+  font-size: 24px;
+  line-height: 1.12;
+  letter-spacing: -.04em;
+}
+
+.hero-point-card p {
+  color: var(--muted);
+  font-size: 17px;
+  line-height: 1.52;
+}
+
+/* Stats image: desktop no photo, mobile photo only */
+.stats-inline-photo {
+  display: none !important;
+}
+
+@media (max-width: 760px) {
+  .hero-grid {
+    gap: 28px !important;
+  }
+
+  .hero-visual {
+    min-height: 400px !important;
+  }
+
+  .visual-card.main,
+  .slider-card {
+    min-height: 380px !important;
+    border-radius: 24px !important;
+  }
+
+  .hero-slider {
+    border-radius: 24px !important;
+  }
+
+  .hero-points {
+    padding: 22px;
+  }
+
+  .hero-points-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .hero-point-card {
+    min-height: auto;
+    padding: 20px;
+  }
+
+  .stats-inline-photo {
+    display: block !important;
+    width: 100%;
+    height: 180px;
+    margin: 10px 0 4px;
+    border-radius: 22px;
+    overflow: hidden;
+    background: #D9D9D9;
+    border: 1px solid rgba(0, 0, 0, .08);
+  }
+
+  .stats-inline-photo img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+}
+
+@media (max-width: 1100px) and (min-width: 761px) {
+  .hero-points-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+
+/* Approach block redesign: not a repeated section-head layout */
+.approach-strip {
+  display: grid;
+  grid-template-columns: minmax(360px, .85fr) minmax(0, 1.15fr);
+  gap: 0;
+  overflow: hidden;
+  border-radius: 30px;
+  background: #fff;
+  border: 1px solid rgba(0, 0, 0, .07);
+  box-shadow: none;
+}
+
+.approach-intro {
+  min-height: 420px;
+  padding: 44px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  color: #fff;
+  background:
+    linear-gradient(135deg, rgba(63, 90, 12, .96), rgba(74, 106, 15, .92)),
+    radial-gradient(circle at 80% 15%, rgba(250, 120, 20, .28), transparent 36%);
+}
+
+.approach-intro .eyebrow {
+  color: rgba(255, 255, 255, .78);
+  margin-bottom: auto;
+}
+
+.approach-intro .eyebrow::before {
+  background: #FA7814;
+}
+
+.approach-intro h2 {
+  max-width: 560px;
+  margin-top: 72px;
+  color: #fff;
+  font-family: 'Montserrat', Arial, sans-serif;
+  font-size: 42px;
+  line-height: 1.04;
+  letter-spacing: -.05em;
+  font-weight: 700;
+}
+
+.approach-intro p {
+  max-width: 560px;
+  margin-top: 20px;
+  color: rgba(255, 255, 255, .76);
+  font-size: 18px;
+  line-height: 1.55;
+}
+
+.approach-list {
+  display: grid;
+  background: #fff;
+}
+
+.approach-item {
+  display: grid;
+  grid-template-columns: 72px minmax(0, 1fr);
+  gap: 24px;
+  align-items: start;
+  min-height: 140px;
+  padding: 34px 40px;
+  border-bottom: 1px solid rgba(0, 0, 0, .08);
+}
+
+.approach-item:last-child {
+  border-bottom: 0;
+}
+
+.approach-item span {
+  width: 48px;
+  height: 48px;
+  display: grid;
+  place-items: center;
+  border-radius: 16px;
+  background: rgba(250, 120, 20, .12);
+  color: #FA7814;
+  font-size: 14px;
+  line-height: 1;
+  font-weight: 800;
+}
+
+.approach-item h3 {
+  max-width: 560px;
+  margin: 0 0 10px;
+  color: var(--ink);
+  font-family: 'Montserrat', Arial, sans-serif;
+  font-size: 25px;
+  line-height: 1.12;
+  letter-spacing: -.035em;
+  font-weight: 700;
+}
+
+.approach-item p {
+  max-width: 680px;
+  color: var(--muted);
+  font-size: 17px;
+  line-height: 1.52;
+}
+
+@media (max-width: 1100px) {
+  .approach-strip {
+    grid-template-columns: 1fr;
+  }
+
+  .approach-intro {
+    min-height: auto;
+    padding: 34px;
+  }
+
+  .approach-intro h2 {
+    margin-top: 56px;
+    font-size: 36px;
+  }
+}
+
+@media (max-width: 760px) {
+  .approach-strip {
+    border-radius: 24px;
+  }
+
+  .approach-intro {
+    padding: 26px;
+  }
+
+  .approach-intro h2 {
+    margin-top: 48px;
+    font-size: 30px;
+  }
+
+  .approach-intro p {
+    font-size: 16px;
+  }
+
+  .approach-item {
+    grid-template-columns: 48px minmax(0, 1fr);
+    gap: 16px;
+    padding: 24px 22px;
+  }
+
+  .approach-item span {
+    width: 40px;
+    height: 40px;
+    border-radius: 13px;
+  }
+
+  .approach-item h3 {
+    font-size: 21px;
+  }
+
+  .approach-item p {
+    font-size: 16px;
+  }
+}
+
+
+/* Simple hero points: cards only, no section label/header */
+.hero-points-simple {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 18px;
+}
+
+.hero-point-card-simple {
+  min-height: 230px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  padding: 28px;
+  border-radius: 26px;
+  background: #fff;
+  border: 1px solid rgba(0, 0, 0, .08);
+  box-shadow: none;
+}
+
+.hero-point-card-simple span {
+  width: 46px;
+  height: 46px;
+  display: grid;
+  place-items: center;
+  border-radius: 16px;
+  background: rgba(250, 120, 20, .12);
+  color: #FA7814;
+  font-size: 14px;
+  line-height: 1;
+  font-weight: 800;
+}
+
+.hero-point-card-simple h3 {
+  max-width: 420px;
+  margin: 0;
+  color: var(--ink);
+  font-family: 'Montserrat', Arial, sans-serif;
+  font-size: 25px;
+  line-height: 1.12;
+  letter-spacing: -.035em;
+  font-weight: 700;
+}
+
+.hero-point-card-simple p {
+  max-width: 520px;
+  margin: 0;
+  color: var(--muted);
+  font-size: 17px;
+  line-height: 1.52;
+}
+
+@media (max-width: 1100px) {
+  .hero-points-simple {
+    grid-template-columns: 1fr;
+  }
+
+  .hero-point-card-simple {
+    min-height: auto;
+  }
+}
+
+@media (max-width: 760px) {
+  .hero-point-card-simple {
+    padding: 22px;
+    border-radius: 22px;
+  }
+
+  .hero-point-card-simple h3 {
+    font-size: 21px;
+  }
+
+  .hero-point-card-simple p {
+    font-size: 16px;
+  }
+}
+
+
+/* Mobile content width: 340px */
+@media (max-width: 760px) {
+  .page-shell {
+    width: min(340px, calc(100% - 24px)) !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+  }
+
+  .hero {
+    width: min(340px, calc(100% - 24px)) !important;
+  }
+
+  .hero-grid,
+  .hero-copy,
+  .hero-visual,
+  .stats,
+  .audience-panel,
+  .zones-grid-v2,
+  .process-wrap,
+  .proof-section,
+  .expert-section,
+  .faq-section,
+  .cta-box,
+  .hero-points-simple {
+    max-width: 340px !important;
+  }
+}
+
+
+
+/* mobile polish fixes */
+@media (max-width: 760px) {
+  .page-shell,
+  .hero,
+  .hero-grid,
+  .hero-copy,
+  .hero-visual,
+  .stats,
+  .audience-layout,
+  .audience-panel,
+  .zones-grid-v2,
+  .process-wrap,
+  .proof-section,
+  .expert-section,
+  .faq-section,
+  .cta-box,
+  .hero-points-simple {
+    max-width: 340px !important;
+  }
+
+  .hero {
+    padding-top: 36px !important;
+    padding-bottom: 44px !important;
+  }
+
+  .kicker {
+    font-size: 12px !important;
+    line-height: 1.25 !important;
+    padding: 10px 14px !important;
+  }
+
+  .section-head {
+    gap: 16px !important;
+    margin-bottom: 18px !important;
+  }
+
+  .section-head-actions {
+    gap: 14px !important;
+  }
+
+  .section-title,
+  .process-sticky h2,
+  .expert-head h2,
+  .cta-copy h2 {
+    font-size: 32px !important;
+    line-height: .98 !important;
+    letter-spacing: -.045em !important;
+    text-wrap: balance;
+  }
+
+  .hero h1 {
+    margin: 18px 0 18px !important;
+    font-size: 30px !important;
+    line-height: .98 !important;
+    letter-spacing: -.045em !important;
+    overflow-wrap: anywhere;
+    text-wrap: balance;
+  }
+
+  .hero h1 .soft {
+    display: block !important;
+  }
+
+  .lead,
+  .section-subtitle,
+  .process-sticky p,
+  .expert-head p,
+  .cta-copy p,
+  .zone-copy p,
+  .real-case-body p,
+  .faq-item p,
+  .helper {
+    font-size: 16px !important;
+    line-height: 1.5 !important;
+  }
+
+  .stats-inline-photo {
+    height: 160px !important;
+    margin: 8px 0 0 !important;
+  }
+
+  .section-head-actions .btn,
+  .section-inline-cta {
+    width: 100% !important;
+  }
+
+  .stats,
+  .audience-panel,
+  .faq-section,
+  .expert-section,
+  .cta-box,
+  .process-sticky,
+  .hero-point-card-simple,
+  .zone-media-card,
+  .real-case-card,
+  .form-card {
+    border-radius: 24px !important;
+  }
+
+  .stats,
+  .faq-section,
+  .expert-section,
+  .cta-box {
+    padding: 18px !important;
+  }
+
+  .process-wrap-cards {
+    gap: 18px !important;
+  }
+
+  .process-sticky {
+    padding: 18px !important;
+  }
+
+  .process-sticky h2 {
+    font-size: 30px !important;
+  }
+
+  .zone-media-card {
+    grid-template-rows: 200px auto !important;
+  }
+
+  .zone-copy {
+    padding: 18px !important;
+  }
+
+  .zone-number {
+    position: static !important;
+    display: block !important;
+    margin-bottom: 10px !important;
+    color: rgba(95, 135, 21, .35) !important;
+    font-size: 18px !important;
+    line-height: 1 !important;
+    letter-spacing: 0 !important;
+  }
+
+  .zone-copy h3 {
+    margin: 0 0 8px 0 !important;
+    font-size: 24px !important;
+    line-height: 1.05 !important;
+  }
+
+  .real-case-image {
+    border-radius: 20px !important;
+    overflow: hidden;
+  }
+
+  .real-case-body {
+    padding-top: 16px !important;
+  }
+
+  .real-case-body h3 {
+    font-size: 24px !important;
+    line-height: 1.06 !important;
+  }
+
+  .expert-head {
+    text-align: left !important;
+    margin: 0 0 20px !important;
+  }
+
+  .expert-head .eyebrow {
+    justify-content: flex-start !important;
+    margin-bottom: 12px !important;
+  }
+
+  .expert-head p {
+    margin: 14px 0 0 !important;
+  }
+
+  .expert-grid {
+    gap: 16px !important;
+  }
+
+  .expert-photo {
+    min-height: 240px !important;
+  }
+
+  .expert-card {
+    padding: 18px !important;
+    border-radius: 22px !important;
+  }
+
+  .expert-card h3 {
+    font-size: 28px !important;
+    line-height: 1.02 !important;
+    margin-bottom: 14px !important;
+  }
+
+  .expert-points {
+    margin-top: 18px !important;
+  }
+
+  .expert-point {
+    grid-template-columns: 40px 1fr !important;
+    gap: 12px !important;
+    padding: 16px 0 !important;
+  }
+
+  .expert-bottom {
+    padding: 18px !important;
+    border-radius: 20px !important;
+  }
+
+  .faq-list {
+    margin-top: 18px !important;
+  }
+
+  .faq-item summary {
+    padding: 18px 52px 18px 18px !important;
+    font-size: 17px !important;
+  }
+
+  .faq-item summary::after {
+    right: 18px !important;
+    top: 16px !important;
+    width: 28px !important;
+    height: 28px !important;
+  }
+
+  .faq-item p {
+    padding: 0 18px 18px !important;
+  }
+
+  .cta-box {
+    padding: 18px !important;
+  }
+
+  .cta-copy {
+    margin-bottom: 18px !important;
+  }
+
+  .form-card {
+    width: 100% !important;
+    margin: 0 !important;
+    padding: 16px !important;
+  }
+
+  .field input,
+  .field textarea {
+    padding: 14px !important;
+    min-height: 50px !important;
+  }
+}
+
+
+/* Stats mobile: remove accidental left vertical line */
+@media (max-width: 760px) {
+  .stats-grid {
+    border-left: 0 !important;
+    border-top: 0 !important;
+    border-radius: 0 !important;
+    overflow: visible !important;
+    gap: 22px !important;
+  }
+
+  .stats-grid .stat {
+    border: 0 !important;
+    padding: 0 0 0 0 !important;
+    min-height: auto !important;
+    background: transparent !important;
+  }
+
+  .stats-grid .stat + .stat {
+    padding-top: 2px !important;
+  }
+}
+
+
+/* Stats mobile final: clean compact cards */
+@media (max-width: 760px) {
+  .stats-grid {
+    display: grid !important;
+    grid-template-columns: 1fr !important;
+    gap: 12px !important;
+    border: 0 !important;
+    border-radius: 0 !important;
+    overflow: visible !important;
+  }
+
+  .stats-grid .stat {
+    display: grid !important;
+    grid-template-columns: 96px minmax(0, 1fr) !important;
+    gap: 14px !important;
+    align-items: center !important;
+    min-height: auto !important;
+    padding: 16px !important;
+    border: 1px solid rgba(95, 135, 21, .12) !important;
+    border-radius: 18px !important;
+    background: #F8FAF4 !important;
+  }
+
+  .stats-grid .stat + .stat {
+    padding-top: 16px !important;
+  }
+
+  .stats-grid .stat b {
+    font-size: 42px !important;
+    line-height: .9 !important;
+    letter-spacing: -.055em !important;
+    color: var(--green) !important;
+  }
+
+  .stats-grid .stat span {
+    font-size: 15px !important;
+    line-height: 1.35 !important;
+    color: var(--ink-2) !important;
+  }
+}
+
+@media (max-width: 360px) {
+  .stats-grid .stat {
+    grid-template-columns: 86px minmax(0, 1fr) !important;
+    gap: 12px !important;
+    padding: 14px !important;
+  }
+
+  .stats-grid .stat b {
+    font-size: 38px !important;
+  }
+}
+
+
+/* Mobile stats final: no green background, no inner borders */
+@media (max-width: 760px) {
+  .stats-grid {
+    display: grid !important;
+    grid-template-columns: 1fr !important;
+    gap: 0 !important;
+    border: 0 !important;
+    border-radius: 0 !important;
+    overflow: visible !important;
+    background: transparent !important;
+  }
+
+  .stats-grid .stat {
+    display: grid !important;
+    grid-template-columns: 92px minmax(0, 1fr) !important;
+    gap: 18px !important;
+    align-items: center !important;
+    min-height: auto !important;
+    padding: 18px 0 !important;
+    border: 0 !important;
+    border-radius: 0 !important;
+    background: transparent !important;
+    box-shadow: none !important;
+  }
+
+  .stats-grid .stat + .stat {
+    border-top: 1px solid rgba(0, 0, 0, .08) !important;
+    padding-top: 18px !important;
+  }
+
+  .stats-grid .stat b {
+    font-size: 42px !important;
+    line-height: .9 !important;
+    letter-spacing: -.055em !important;
+    color: var(--green) !important;
+  }
+
+  .stats-grid .stat span {
+    font-size: 15px !important;
+    line-height: 1.35 !important;
+    color: var(--ink-2) !important;
+  }
+}
+
+@media (max-width: 360px) {
+  .stats-grid .stat {
+    grid-template-columns: 82px minmax(0, 1fr) !important;
+    gap: 14px !important;
+  }
+
+  .stats-grid .stat b {
+    font-size: 38px !important;
+  }
+}
+
 </style>
 </head>
 <body>
@@ -3738,19 +4596,26 @@
 </div>
 <div class="slider-overlay"></div>
 </div>
-<div class="visual-card mini-card one">
+</div>
+</div>
+</section>
+<section class="section compact page-shell" id="approach">
+<div class="hero-points-simple reveal">
+<article class="hero-point-card-simple">
+<span>01</span>
 <h3>Берём мебельную часть проекта</h3>
-<p>Берём на себя анализ помещений, комплектацию, производство, поставку, монтаж, подготовку документации и сервисное сопровождение. Все этапы проекта находятся под управлением одной команды.</p>
-</div>
-<div class="visual-card mini-card two">
+<p>Анализируем помещения, собираем комплектацию, производим, поставляем, монтируем и готовим закрывающие документы.</p>
+</article>
+<article class="hero-point-card-simple">
+<span>02</span>
 <h3>Проект под реальные сроки</h3>
-<p>Планируем производство и поставку с учётом этапов строительства, особенностей объекта, региона и сроков ввода в эксплуатацию. Это позволяет синхронизировать мебельную часть с общим ходом реализации проекта.</p>
-</div>
-<div class="visual-card mini-card three">
+<p>Планируем поставку с учётом этапов строительства, региона, готовности объекта и сроков ввода в эксплуатацию.</p>
+</article>
+<article class="hero-point-card-simple">
+<span>03</span>
 <h3>Не исчезаем после сдачи</h3>
-<p>После передачи объекта продолжаем сопровождение: выполняем регулировку мебели, профилактическое обслуживание и помогаем решать вопросы, возникающие в процессе эксплуатации.</p>
-</div>
-</div>
+<p>Помогаем после передачи объекта: регулировка, профилактика, сервисное сопровождение и вопросы эксплуатации мебели.</p>
+</article>
 </div>
 </section>
 <section class="section compact page-shell reveal">
@@ -3760,7 +4625,7 @@
 <span class="eyebrow">02 — ДОВЕРИЕ</span>
 <h2 class="section-title">18 лет там, где важны сроки и документы</h2>
 </div>
-<div class="section-head-actions"><p class="section-subtitle">СоюзПоставка работает с 2008 года и занимается комплексным оснащением социальных, образовательных и государственных объектов. Этот опыт компания переносит в медицинскую и социальную инфраструктуру.</p><a class="btn secondary section-inline-cta" href="#request">Обсудить объект</a></div>
+<div class="section-head-actions"><div class="stats-inline-photo"><img alt="Команда обсуждает проект мебельного оснащения" src="team-placeholder.png"/></div><p class="section-subtitle">СоюзПоставка работает с 2008 года и занимается комплексным оснащением социальных, образовательных и государственных объектов. Этот опыт компания переносит в медицинскую и социальную инфраструктуру.</p><a class="btn secondary section-inline-cta" href="#request">Обсудить объект</a></div>
 </div>
 <div class="stats-grid">
 <div class="stat"><b>18</b><span>лет работаем с комплексным оснащением объектов</span></div>
@@ -3833,7 +4698,7 @@
 </article>
 <article class="zone-media-card">
 <div class="zone-media">
-<img alt="Номер для проживания с кроватью, тумбами, шкафом и мягкой мебелью" src="3.png"/>
+<img alt="Номер для проживания с кроватью, рабочей зоной, шкафами и мебелью для хранения" src="room-residence.png"/>
 </div>
 <div class="zone-copy">
 <span class="zone-number">02</span>
@@ -3969,9 +4834,9 @@
 <div class="section-head reveal">
 <div>
 <span class="eyebrow">06 — ПОЧЕМУ МЫ</span>
-<h2 class="section-title">Опыт социальных объектов работает и здесь</h2>
+<h2 class="section-title">Почему заказчики передают нам мебельное оснащение</h2>
 </div>
-<div class="section-head-actions"><p class="section-subtitle">Основной опыт компании — комплексное оснащение социальных и государственных объектов. В медицинской инфраструктуре похожая логика: сроки, документы, приёмка, монтаж, эксплуатация и ответственность перед людьми.</p><a class="btn secondary section-inline-cta" href="#request">Рассчитать оснащение</a></div>
+<div class="section-head-actions"><p class="section-subtitle">Закрываем не отдельную позицию из прайса, а мебельную часть проекта целиком: от подбора решений и сроков до поставки, монтажа, документов и дальнейшего сопровождения.</p><a class="btn secondary section-inline-cta" href="#request">Рассчитать оснащение</a></div>
 </div>
 <div class="why-grid reveal">
 <article class="why-card"><div class="why-icon"><svg aria-hidden="true" viewbox="0 0 24 24"><path d="M3 8h7v7H3z"></path><path d="M14 4h7v7h-7z"></path><path d="M14 15h7v5h-7z"></path><path d="M10 11h4"></path><path d="M17.5 11v4"></path></svg></div><h3>Понимаем сложные объекты</h3><p>Учитываем заказчика, подрядчика, проектировщиков, снабжение, монтажные бригады и будущую эксплуатацию.</p></article>
@@ -4099,42 +4964,30 @@
 <h2 class="section-title">Частые вопросы перед расчётом</h2>
 </div>
 <div class="section-head-actions">
-<p class="section-subtitle">Собрали вопросы, которые обычно возникают перед заказом мебельного оснащения: от состава работ и 3D-расстановки до сроков, документов и монтажа.</p>
+<p class="section-subtitle">Собрали вопросы, которые обычно возникают перед расчётом проекта: нормативы, техническое задание, индивидуальная мебель, стоимость и логистика.</p>
 <a class="btn secondary section-inline-cta" href="#request">Задать вопрос</a>
 </div>
 </div>
 <div class="faq-list">
 <details class="faq-item" open="">
-<summary>Чем медицинская мебель отличается от обычной офисной?</summary>
-<p>Главное отличие — требования к износостойкости, уборке и санитарной обработке. Для медицинских и социальных объектов важно, чтобы поверхности выдерживали частую обработку, легко очищались и подходили для ежедневной интенсивной эксплуатации.</p>
+<summary>По каким нормативам формируется перечень при капремонте?</summary>
+<p>Основной документ — Приказ Минпросвещения № 838 для основного общего образования и № 1057 для дошкольных учреждений. Помимо этого учитываются требования ФГОС и СанПиН 1.2.3685-21. Перечень формируется с учётом всех трёх источников и актуальной редакции нормативов.</p>
 </details>
 <details class="faq-item">
-<summary>Можно ли закрыть мебельное оснащение всего объекта, а не покупать позиции отдельно?</summary>
-<p>Да. Мы можем собрать мебельную часть проекта как единую комплектацию: кабинеты специалистов, регистратуры, зоны ожидания, административные помещения, комнаты персонала, хозяйственные и вспомогательные зоны.</p>
+<summary>Берётесь за объекты без готового технического задания?</summary>
+<p>Да. Если ТЗ ещё не сформировано, помогаем разработать перечень оборудования на основании нормативов и площади объекта. Потребуется проектная документация или данные о типе учреждения, количестве учащихся и планируемых помещениях.</p>
 </details>
 <details class="faq-item">
-<summary>Какие зоны можно включить в расчёт?</summary>
-<p>В расчёт можно включить рабочие кабинеты, ресепшен, ожидание, помещения персонала, хранение, административные зоны, санаторные и реабилитационные пространства, а также помещения после капитального ремонта.</p>
+<summary>Возможна ли поставка мебели по индивидуальным проектам?</summary>
+<p>Да. Для проектов стоимостью от 500 000 рублей производство разрабатывает и изготавливает индивидуальные модели мебели под задачи и пожелания заказчика. Учитываются особенности помещения, стилистика интерьера и требования к функциональности, чтобы создать решения, которые невозможно подобрать среди готовых серийных изделий.</p>
 </details>
 <details class="faq-item">
-<summary>Что делать, если помещение сложное или типовая мебель не подходит?</summary>
-<p>В таком случае подбираем нестандартные решения или проектируем мебель под конкретные размеры, ниши, планировку и задачи эксплуатации. Это особенно важно, когда объект уже построен или после ремонта есть ограничения по месту.</p>
+<summary>Как рассчитать стоимость капитального ремонта?</summary>
+<p>Базовый ориентир для расчёта — 198 000 рублей на одно ученическое место в соответствии с Приказом № 838. Итоговая стоимость определяется индивидуально и зависит от вместимости учреждения, текущего уровня оснащения и объёма работ по проектно-сметной документации. Анализ документации и предварительный расчёт стоимости можно подготовить бесплатно.</p>
 </details>
 <details class="faq-item">
-<summary>Можно ли заранее увидеть расстановку мебели?</summary>
-<p>Да. При необходимости готовим 3D-расстановку или визуализацию, чтобы заранее проверить, как мебель встанет в помещение, удобно ли организованы проходы и нет ли конфликтов с планировкой.</p>
-</details>
-<details class="faq-item">
-<summary>Доставка, сборка и монтаж входят в проект?</summary>
-<p>Да, эти работы можно включить в мебельное оснащение объекта. Мы учитываем регион, сроки, этапность поставки и реальные ограничения площадки, чтобы мебель приехала и была смонтирована в нужный момент.</p>
-</details>
-<details class="faq-item">
-<summary>Какие документы нужны для предварительного расчёта?</summary>
-<p>Подойдёт планировка, ведомость мебели, техническое задание, список помещений или свободное описание объекта. Чем понятнее состав зон, сроки, регион и стадия ремонта, тем точнее получится предварительная комплектация.</p>
-</details>
-<details class="faq-item">
-<summary>От чего зависят сроки и стоимость оснащения?</summary>
-<p>На расчёт влияют количество помещений и зон, состав мебели, необходимость индивидуальных решений, стадия ремонта, регион поставки, монтаж и сроки запуска объекта.</p>
+<summary>Работаете с регионами с ограниченной транспортной доступностью?</summary>
+<p>Да. Поставляем в 58+ регионов России, включая труднодоступные районы. Условия логистики уточняются на этапе согласования — доставка до объекта включается в общий расчёт стоимости.</p>
 </details>
 </div>
 </div>
