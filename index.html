@@ -4764,7 +4764,7 @@
 </div>
 <div class="process-grid reveal">
 <article class="process-card">
-<img alt="Знакомство с заказчиком и обсуждение стратегии проекта" src="10.png"/>
+<img alt="Знакомство с заказчиком и обсуждение стратегии проекта" src="process-step-01-partnership.png"/>
 <div class="process-card-top"><span>01</span></div>
 <div class="process-card-body">
 <h3>Этап 1. Решение о партнёрстве</h3>
@@ -4804,7 +4804,7 @@
 </div>
 </article>
 <article class="process-card">
-<img alt="Логистика и поставка на объект" src="14.png"/>
+<img alt="Логистика и поставка на объект" src="process-step-06-logistics.png"/>
 <div class="process-card-top"><span>06</span></div>
 <div class="process-card-body">
 <h3>Этап 6. Логистика и поставка на объект</h3>
@@ -5362,4 +5362,57 @@ body {
   }
 }
 
+
+
+  /* Final mobile process fixes */
+  @media (max-width: 760px) {
+    .process-wrap-cards {
+      gap: 22px !important;
+    }
+
+    .process-sticky {
+      margin-bottom: 6px;
+    }
+
+    .process-grid {
+      gap: 18px !important;
+      margin-top: 4px;
+    }
+
+    .process-card {
+      min-height: 352px;
+      margin-top: 0 !important;
+    }
+
+    .process-card:first-child {
+      margin-top: 4px !important;
+    }
+
+    .process-card-top {
+      top: 16px;
+      left: 16px;
+    }
+
+    .process-card-top span {
+      width: 44px;
+      height: 44px;
+      border-radius: 14px;
+      font-size: 14px;
+    }
+
+    .process-card-body {
+      padding: 18px 18px 20px;
+    }
+
+    .process-card-body h3 {
+      font-size: 19px;
+      line-height: 1.08;
+      max-width: 100%;
+    }
+
+    .process-card-body p {
+      font-size: 15px;
+      line-height: 1.42;
+    }
+  }
 </style>
